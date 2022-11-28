@@ -337,5 +337,6 @@
     "yargs-parser": "^20.2.9",
     "zwitch": "^1.0.5"
   },
-  "description": ""
+  "description": "This will be a Movie App",
+  "main": "webpack.config.js"
 }
