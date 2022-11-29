@@ -1,20 +1,20 @@
 class Movies {
-    constructor() {
-      this.API_BASE_URL = 'https://api.tvmaze.com/';
-      this.movies = [];
-    }
-  
+  constructor() {
+    this.API_BASE_URL = 'https://api.tvmaze.com/';
+    this.movies = [];
+  }
+
       getMovieList = async (key) => {
         const Query = `search/shows?q=${key}`;
         const list = await fetch(`${this.API_BASE_URL}${Query}`).then((response) => response.json());
         this.movies = [...this.movies, ...list];
       }
-  
+
       displayMovies = async () => {
         await this.getMovieList('birds');
         await this.getMovieList('boys');
         await this.getMovieList('empire');
-  
+
         const list = this.movies.reduce((prev, curr) => {
           if (curr.show.image) {
             prev += `
@@ -38,6 +38,6 @@ class Movies {
         }, '');
         document.querySelector('.movies-list').innerHTML = list;
       }
-  }
-  
-  export default Movies;
+}
+
+export default Movies;
