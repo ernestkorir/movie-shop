@@ -24,3 +24,15 @@ footer {
   padding-top: 1.2rem;
   border-top: 1px solid black;
 }
+
+#movieList {
+  display: grid;
+  gap: var(--g);
+  width: calc(var(--m) * var(--s) + (var(--m) - 1) * var(--g));
+  height: calc(var(--n) * var(--s) + (var(--n) - 1) * var(--g));
+  grid-template-columns: repeat(var(--m), auto);
+
+  --m: 5;
+  --s: 150px;
+  --n: 3;
+}
