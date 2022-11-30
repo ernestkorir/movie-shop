@@ -1,4 +1,5 @@
 import HelperFuncs from './helpers.js';
+
 class Movies {
   constructor() {
     this.API_BASE_URL = 'https://api.tvmaze.com/';
