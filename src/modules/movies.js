@@ -28,7 +28,9 @@ class Movies {
   getLikes = async () => {
     this.likes = await fetch(this.LIKES_URL).then((response) => response.json());
   }
+
   getMoviesCount = () => this.movies.length;
+
       getMovieList = async (key) => {
         const Query = `search/shows?q=${key}`;
         const list = await fetch(`${this.API_BASE_URL}${Query}`).then((response) => response.json());
