@@ -24,15 +24,26 @@ class Movies {
     likeButton.nextElementSibling.innerHTML = msgLikes;
   }
 
+  getMoviesCount = () => this.movies.length;
+
   getLikes = async () => {
     this.likes = await fetch(this.LIKES_URL).then((response) => response.json());
   }
 
-    getMovieList = async (key) => {
-      const Query = `search/shows?q=${key}`;
-      const list = await fetch(`${this.API_BASE_URL}${Query}`).then((response) => response.json());
-      this.movies = [...this.movies, ...list];
-    }
+
+  getMoviesCount = () => this.movies.length;
+
+      getMovieList = async (key) => {
+        const Query = `search/shows?q=${key}`;
+        const list = await fetch(`${this.API_BASE_URL}${Query}`).then((response) => response.json());
+        this.movies = [...this.movies, ...list];
+      }
+
+      displayMovies = async () => {
+        await this.getMovieList('birds');
+        await this.getMovieList('boys');
+        await this.getLikes();
+
 
     displayMovies = async () => {
       await this.getMovieList('birds');
@@ -59,14 +70,15 @@ class Movies {
                 <button class="btn" id="${curr.show.id}">Comments</button>
               </div>
             </div>
-          </div>
-          `;
-        }
-        return prev;
-      }, '');
-      document.querySelector('.movies-list').innerHTML = list;
-      addCommentPopupEvent();
-      HelperFuncs.registersLikeButtons(this);
-    }
+
+            `;
+          }
+          return prev;
+        }, '');
+        document.querySelector('.movies-list').innerHTML = list;
+        document.querySelector('.title span').innerHTML = this.getMoviesCount(this.movies);
+        HelperFuncs.registersLikeButtons(this);
+      }
+
 }
 export default Movies;
