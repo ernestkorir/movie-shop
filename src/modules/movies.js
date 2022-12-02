@@ -5,7 +5,7 @@ import HelperFuncs from './helpers.js';
 class Movies {
   constructor() {
     this.API_BASE_URL = 'https://api.tvmaze.com/';
-    this.LIKES_URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/4dyq58hiPupb0utce3OK/likes';
+    this.LIKES_URL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/j7QTZEiQOHqTqkmNaozR/likes/';
     this.movies = [];
     this.likes = [];
   }
