@@ -1,3 +1,5 @@
+import { addCommentPopupEvent } from './comments.js';
+// import {displayDetails} from './comments.js';
 import HelperFuncs from './helpers.js';
 
 class Movies {
@@ -17,7 +19,6 @@ class Movies {
       body: JSON.stringify({ item_id: itemId }),
     }).then((response) => response.text(response)).then((json) => json);
     await this.getLikes();
-
     const index = this.likes.findIndex((like) => like.item_id === itemId);
     const msgLikes = index >= 0 ? this.likes[index].likes : 0;
     likeButton.nextElementSibling.innerHTML = msgLikes;
@@ -41,7 +42,6 @@ class Movies {
         await this.getMovieList('birds');
         await this.getMovieList('boys');
         await this.getLikes();
-
         const list = this.movies.reduce((prev, curr) => {
           if (curr.show.image) {
             const index = this.likes.findIndex((like) => like.item_id === curr.show.id);
@@ -54,24 +54,24 @@ class Movies {
                 </div>
                 <div class="d-flex movie-content mb-1 space-evenly">
                   <span>${curr.show.name}</span>
-                  <div> 
-                <i class="fa fa-heart fa-lg" data-pos=${curr.show.id}></i> 
+                  <div>
+                  <i class="fa fa-heart fa-lg" data-pos=${curr.show.id}></i>  
                 <span>${msgLikes}</span> Likes
                </div>
-                </div>
-                <div class="d-flex space-around mb-1">
-                  <button class="btn" data-id=${curr.show.id}>Comments</button>
-                </div>
+              </div>
+              <div class="d-flex space-around mb-1">
+                <button class="btn" id="${curr.show.id}">Comments</button>
               </div>
             </div>
+
             `;
           }
           return prev;
         }, '');
         document.querySelector('.movies-list').innerHTML = list;
-        document.querySelector('.title span').innerHTML = this.getMoviesCount(this.movies);
+        addCommentPopupEvent();
         HelperFuncs.registersLikeButtons(this);
-      }
+      };
 }
 
 export default Movies;
