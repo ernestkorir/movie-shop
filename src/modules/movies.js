@@ -63,6 +63,7 @@ class Movies {
                 <button class="btn" id="${curr.show.id}">Comments</button>
               </div>
             </div>
+            </div>
 
             `;
           }
