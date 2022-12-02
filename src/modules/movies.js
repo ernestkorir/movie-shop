@@ -30,7 +30,6 @@ class Movies {
     this.likes = await fetch(this.LIKES_URL).then((response) => response.json());
   }
 
-
   getMoviesCount = () => this.movies.length;
 
       getMovieList = async (key) => {
@@ -43,26 +42,20 @@ class Movies {
         await this.getMovieList('birds');
         await this.getMovieList('boys');
         await this.getLikes();
-
-
-    displayMovies = async () => {
-      await this.getMovieList('birds');
-      await this.getMovieList('boys');
-      await this.getLikes();
-      const list = this.movies.reduce((prev, curr) => {
-        if (curr.show.image) {
-          const index = this.likes.findIndex((like) => like.item_id === curr.show.id);
-          const msgLikes = index >= 0 ? this.likes[index].likes : 0;
-          prev += `
-          <div class="movie-item mb-1">
-            <div>
-              <div class="d-flex space-around mb-1">
-               <img src=${curr.show.image.medium} />
-              </div>
-              <div class="d-flex movie-content mb-1 space-evenly">
-                <span>${curr.show.name}</span>
-                <div>
-                <i class="fa fa-heart fa-lg" data-pos=${curr.show.id}></i>
+        const list = this.movies.reduce((prev, curr) => {
+          if (curr.show.image) {
+            const index = this.likes.findIndex((like) => like.item_id === curr.show.id);
+            const msgLikes = index >= 0 ? this.likes[index].likes : 0;
+            prev += `
+            <div class="movie-item mb-1">
+              <div>
+                <div class="d-flex space-around mb-1">
+                 <img src=${curr.show.image.medium} />
+                </div>
+                <div class="d-flex movie-content mb-1 space-evenly">
+                  <span>${curr.show.name}</span>
+                  <div>
+                  <i class="fa fa-heart fa-lg" data-pos=${curr.show.id}></i>  
                 <span>${msgLikes}</span> Likes
                </div>
               </div>
@@ -76,9 +69,9 @@ class Movies {
           return prev;
         }, '');
         document.querySelector('.movies-list').innerHTML = list;
-        document.querySelector('.title span').innerHTML = this.getMoviesCount(this.movies);
+        addCommentPopupEvent();
         HelperFuncs.registersLikeButtons(this);
-      }
-
+      };
 }
+
 export default Movies;
