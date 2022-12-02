@@ -23,9 +23,13 @@ class Movies {
     likeButton.nextElementSibling.innerHTML = msgLikes;
   }
 
+  getMoviesCount = () => this.movies.length;
+
   getLikes = async () => {
     this.likes = await fetch(this.LIKES_URL).then((response) => response.json());
   }
+
+  getMoviesCount = () => this.movies.length;
 
       getMovieList = async (key) => {
         const Query = `search/shows?q=${key}`;
@@ -65,6 +69,7 @@ class Movies {
           return prev;
         }, '');
         document.querySelector('.movies-list').innerHTML = list;
+        document.querySelector('.title span').innerHTML = this.getMoviesCount(this.movies);
         HelperFuncs.registersLikeButtons(this);
       }
 }
