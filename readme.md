@@ -60,6 +60,10 @@ After you're finished please remove all the comments and instructions!
 
 **[Movie Api]** is a javascript project
 
+## live demo
+
+[live demo](https://ernestkorir.github.io/movie-shop/dist/)
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
