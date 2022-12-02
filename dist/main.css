@@ -86,7 +86,7 @@ footer {
 }
 
 .modal-image {
-  display:  flex;
+  display: flex;
   justify-content: center;
   border: 1px solid black;
   border-radius: 10px;
