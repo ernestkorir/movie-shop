@@ -136,7 +136,7 @@ You can deploy this project using:
 
 > Mention all of the collaborators of this project.
 
-👤 **Moses Wamae**
+👤 **Ernest Korir**
 
 - GitHub: [@ernestkorir](https://github.com/ernestkorir)
 
