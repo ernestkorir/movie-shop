@@ -147,6 +147,7 @@ li {
   width: 70%;
   align-self: center;
   cursor: pointer;
+  margin-bottom: 35px;
 }
 
 .comments-form {
