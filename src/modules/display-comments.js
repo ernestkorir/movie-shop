@@ -1,3 +1,5 @@
+const { countComments } = require('./countComments.js');
+
 const commentApi = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/4dyq58hiPupb0utce3OK/comments';
 export const fetchComments = async (id) => {
   const response = await fetch(`${commentApi}?item_id=${id}`);
@@ -18,6 +20,7 @@ const createCommentHtml = ({ creation_date, comment, username }) => {
   `;
   return commentli;
 };
+
 export const generateComment = async (id) => {
   const commentUl = document.createElement('ul');
   commentUl.id = 'comments-section';
@@ -31,10 +34,12 @@ export const generateComment = async (id) => {
   } else {
     comments.forEach((comment) => {
       commentUl.append(createCommentHtml(comment));
+      countComments(comment);
     });
   }
   return commentUl;
 };
+
 export const addComment = async (id, user, comment) => {
   const newComment = {
     item_id: id,
