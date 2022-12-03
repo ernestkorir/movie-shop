@@ -1,4 +1,4 @@
-const { countComments } = require('./countComments.js');
+// const { countComments } = require('./countComments.js');
 
 const commentApi = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/emzsv4K8eZ5zPuyxs6Op/comments';
 
@@ -35,7 +35,7 @@ export const generateComment = async (id) => {
   } else {
     comments.forEach((comment) => {
       commentUl.append(createCommentHtml(comment));
-      countComments(comment);
+      // countComments(comment);
     });
   }
   return commentUl;
