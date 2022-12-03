@@ -30,13 +30,13 @@ global.fetch = jest.fn(() => Promise.resolve({
 }));
 
 describe('test get movies count method', () => {
-  const movies = new Movies();  // arrange
+  const movies = new Movies(); // arrange
 
   test('test getMoviesCount I', async () => {
     await movies.getMovieList('birds'); // Act
     await movies.getMovieList('boys');
 
-    //aasert
+    // aasert
     expect(movies.getMoviesCount()).toBe(4);
   });
 

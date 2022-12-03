@@ -1,4 +1,3 @@
-
 const { countComments } = require('./countComments.js');
 
 const commentApi = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/emzsv4K8eZ5zPuyxs6Op/comments';
