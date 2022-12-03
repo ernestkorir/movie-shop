@@ -1,6 +1,8 @@
+
 const { countComments } = require('./countComments.js');
 
-const commentApi = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/4dyq58hiPupb0utce3OK/comments';
+const commentApi = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/emzsv4K8eZ5zPuyxs6Op/comments';
+
 export const fetchComments = async (id) => {
   const response = await fetch(`${commentApi}?item_id=${id}`);
   const data = await response.json();
